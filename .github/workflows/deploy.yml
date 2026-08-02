@@ -1,0 +1,20 @@
+name: Deploy Web to Server
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote SSH command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Aquí va el comando que se ejecutará en tu servidor Linux
+            # Si tienes un script de actualización, puedes llamarlo así:
+            /opt/xelcore/update-web.sh
