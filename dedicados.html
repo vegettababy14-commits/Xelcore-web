@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xelcore | Servidores Dedicados de Alto Rendimiento</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Luces de ambiente de fondo -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Barra de Navegación -->
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                <span class="nav-brand-text">Xelcore</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="games.html">Game Servers</a></li>
+                <li><a href="vps.html">VPS</a></li>
+                <li><a href="dedicados.html" class="active-link">Dedicados</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-lang-btn">🌐 ES</button>
+                <a href="https://panel.xelcore.es" class="nav-client-btn">
+                    <span>Área de Clientes</span>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabecera de la página de Dedicados -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Servidores <span class="gradient-text">Dedicados</span></h1>
+            <p class="page-subtitle">Hardware exclusivo y sin compartir con un rendimiento bruto inigualable para proyectos exigentes y nodos profesionales.</p>
+        </div>
+    </section>
+
+    <!-- Catálogo / Tarjetas de Dedicados -->
+    <section class="games-catalog container">
+        <div class="game-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); max-width: 600px; margin: 0 auto;">
+            
+            <!-- Servidor Dedicado Ryzen 5 3600 -->
+            <div class="game-card" style="border-color: rgba(0, 200, 151, 0.4);">
+                <div class="game-card-banner">
+                    <span class="game-tag">Hardware Exclusivo</span>
+                    <h3>Ryzen 5 3600</h3>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-desc">Potencia bruta ideal para entornos de virtualización avanzados, grandes comunidades de juegos o bases de datos pesadas.</p>
+                    <ul class="game-specs">
+                        <li><span>Procesador:</span> <strong>6 Cores / 12 Threads</strong></li>
+                        <li><span>Memoria RAM:</span> <strong>64 GB DDR4</strong></li>
+                        <li><span>Almacenamiento:</span> <strong>1 TB NVMe Ultra-Fast</strong></li>
+                        <li><span>Conectividad:</span> <strong>1 Gbps Simétrico</strong></li>
+                        <li><span>Protección DDoS:</span> <strong>Incluida Profesional</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount">59,95 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-filled-popular" style="text-align: center; justify-content: center;">Contratar Dedicado</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                    <span class="nav-brand-text">Xelcore</span>
+                </div>
+                <p class="footer-desc">
+                    Hosting de servidores de alto rendimiento, VPS y dedicados con la máxima estabilidad y protección Anti-DDoS.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="games.html">Game Servers</a></li>
+                    <li><a href="vps.html">VPS</a></li>
+                    <li><a href="dedicados.html">Dedicados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte & Comunidad</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/57yQ6dF8BR" target="_blank">Discord Oficial</a></li>
+                    <li><a href="https://panel.xelcore.es" target="_blank">Área de Clientes</a></li>
+                    <li><a href="#">Estado de los Sistemas</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Xelcore. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+</body>
+</html>

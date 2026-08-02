@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xelcore | Servidores de Juegos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .compact-configurator {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            background: rgba(18, 20, 28, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .compact-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 30px;
+            align-items: center;
+        }
+        @media(max-width: 768px) {
+            .compact-grid { grid-template-columns: 1fr; }
+        }
+        .compact-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .compact-summary {
+            background: rgba(10, 12, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Luces de ambiente de fondo -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Barra de Navegación -->
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                <span class="nav-brand-text">Xelcore</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="games.html" class="active-link">Game Servers</a></li>
+                <li><a href="vps.html">VPS</a></li>
+                <li><a href="dedicados.html">Dedicados</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-lang-btn">🌐 ES</button>
+                <a href="https://panel.xelcore.es" class="nav-client-btn">
+                    <span>Área de Clientes</span>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabecera de la página de Juegos -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Servidores de <span class="gradient-text">Juegos</span></h1>
+            <p class="page-subtitle">Elige un plan predefinido optimizado o diseña tu propio servidor a medida para Rust, Palworld y más.</p>
+        </div>
+    </section>
+
+    <!-- 1. PLANES PREDEFINIDOS DE JUEGOS -->
+    <section class="games-catalog container" style="margin-bottom: 40px;">
+        <div class="config-header" style="margin-bottom: 25px;">
+            <h2>Planes Predefinidos</h2>
+            <p>Listos para desplegar con la mejor relación calidad-precio.</p>
+        </div>
+
+        <div class="game-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 1100px;">
+            
+            <!-- Plan Nano -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <h3>Nano</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>1 vCore</strong></li>
+                        <li><span>RAM:</span> <strong>2 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>20 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">2,29 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+            <!-- Plan Start -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <h3>Start</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>1 vCore</strong></li>
+                        <li><span>RAM:</span> <strong>4 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>35 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">4,29 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+            <!-- Plan Basic (Popular) -->
+            <div class="game-card" style="border-color: rgba(0, 200, 151, 0.4);">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <span class="game-tag">Popular</span>
+                    <h3>Basic</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>2 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>6 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>50 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">6,29 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-filled-popular" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+            <!-- Plan Plus -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <h3>Plus</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>2 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>8 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>60 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">8,49 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+            <!-- Plan Pro -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <h3>Pro</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>3 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>10 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>80 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">10,99 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+            <!-- Plan Extreme -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 15px;">
+                    <span class="game-tag secondary-tag">Alto Rend.</span>
+                    <h3>Extreme</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>4 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>12 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>100 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.4rem;">13,99 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 8px;">Contratar</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. CONFIGURADOR A MEDIDA COMPACTO (Nuevos rangos: Cores 4-6, RAM 12-24, NVMe 100-350) -->
+    <section class="container">
+        <div class="config-header" style="margin-bottom: 20px;">
+            <h2>¿Prefieres personalizarlo?</h2>
+            <p>Ajusta los recursos avanzados a tu medida exacta.</p>
+        </div>
+
+        <div class="compact-configurator">
+            <div class="compact-grid">
+                <!-- Controles deslizantes con nuevos rangos -->
+                <div class="compact-controls">
+                    <div class="config-option-group" style="margin-bottom: 10px;">
+                        <label style="font-size: 0.9rem;">Núcleos (vCPU): <span id="cpu-val">4 Cores</span></label>
+                        <input type="range" id="cpu-range" min="4" max="6" step="1" value="4" class="config-range">
+                    </div>
+
+                    <div class="config-option-group" style="margin-bottom: 10px;">
+                        <label style="font-size: 0.9rem;">Memoria RAM: <span id="ram-val">12 GB</span></label>
+                        <input type="range" id="ram-range" min="12" max="24" step="4" value="12" class="config-range">
+                    </div>
+
+                    <div class="config-option-group" style="margin-bottom: 0;">
+                        <label style="font-size: 0.9rem;">Almacenamiento NVMe: <span id="storage-val">100 GB</span></label>
+                        <input type="range" id="storage-range" min="100" max="350" step="50" value="100" class="config-range">
+                    </div>
+                </div>
+
+                <!-- Resumen compacto -->
+                <div class="compact-summary">
+                    <ul class="summary-specs-list" style="font-size: 0.85rem; margin-bottom: 15px; text-align: left;">
+                        <li><span>CPU:</span> <strong id="summary-cpu">4 Cores Ryzen 5</strong></li>
+                        <li><span>RAM:</span> <strong id="summary-ram">12 GB DDR4</strong></li>
+                        <li><span>NVMe:</span> <strong id="summary-storage">100 GB</strong></li>
+                    </ul>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <span style="font-size: 0.8rem; color: #aaa; display: block;">Total Estimado</span>
+                        <span id="total-price" style="font-size: 1.5rem; font-weight: 800; color: #00c897;">15.00€ <small>/mes</small></span>
+                    </div>
+
+                    <a href="https://panel.xelcore.es" class="btn-action btn-filled-popular" style="padding: 10px; font-size: 0.9rem; text-align: center; justify-content: center;">Configurar Medida</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                    <span class="nav-brand-text">Xelcore</span>
+                </div>
+                <p class="footer-desc">
+                    Hosting de servidores de alto rendimiento, VPS y dedicados con la máxima estabilidad y protección Anti-DDoS.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="games.html">Game Servers</a></li>
+                    <li><a href="vps.html">VPS</a></li>
+                    <li><a href="dedicados.html">Dedicados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte & Comunidad</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/57yQ6dF8BR" target="_blank">Discord Oficial</a></li>
+                    <li><a href="https://panel.xelcore.es" target="_blank">Área de Clientes</a></li>
+                    <li><a href="#">Estado de los Sistemas</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Xelcore. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+
+    <!-- Script del configurador compacto con nuevos rangos -->
+    <script>
+    const cpuRange = document.getElementById('cpu-range');
+    const ramRange = document.getElementById('ram-range');
+    const storageRange = document.getElementById('storage-range');
+
+    const cpuVal = document.getElementById('cpu-val');
+    const ramVal = document.getElementById('ram-val');
+    const storageVal = document.getElementById('storage-val');
+
+    const summaryCpu = document.getElementById('summary-cpu');
+    const summaryRam = document.getElementById('summary-ram');
+    const summaryStorage = document.getElementById('summary-storage');
+    const totalPrice = document.getElementById('total-price');
+
+    function updateConfig() {
+        const cpu = parseInt(cpuRange.value);
+        const ram = parseInt(ramRange.value);
+        const storage = parseInt(storageRange.value);
+
+        cpuVal.textContent = cpu + ' Cores';
+        ramVal.textContent = ram + ' GB';
+        storageVal.textContent = storage + ' GB';
+
+        summaryCpu.textContent = cpu + ' Cores Ryzen 5';
+        summaryRam.textContent = ram + ' GB DDR4';
+        summaryStorage.textContent = storage + ' GB';
+
+        let basePrice = 6.00;
+        let priceCpu = cpu * 2.50;
+        let priceRam = ram * 0.80;
+        let priceStorage = storage * 0.03;
+
+        let finalCalc = basePrice + priceCpu + priceRam + priceStorage;
+        totalPrice.innerHTML = finalCalc.toFixed(2) + '€ <small>/mes</small>';
+    }
+
+    cpuRange.addEventListener('input', updateConfig);
+    ramRange.addEventListener('input', updateConfig);
+    storageRange.addEventListener('input', updateConfig);
+
+    updateConfig();
+    </script>
+</body>
+</html>
