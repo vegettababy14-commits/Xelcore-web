@@ -6,6 +6,7 @@
     <title>Xelcore | Servidores de Alto Rendimiento</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9eeab41f-43ad-49a4-bd5f-211ff18df482";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>   
 </head>
 <body>
 
@@ -55,7 +56,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="games.html" class="btn-action btn-filled-popular">Ver Game Servers</a>
-                <a href="https://panel.xelcore.es" target="_blank" class="btn-action btn-outline">Prueba el Panel</a>
+                <a href="vps.html" class="btn-action btn-outline">Prueba el panel</a>
             </div>
         </div>
     </section>
@@ -64,7 +65,7 @@
     <section class="games-catalog container" style="padding-top: 20px; padding-bottom: 60px;">
         <div class="config-header" style="margin-bottom: 30px;">
             <h2>Nuestros Servicios</h2>
-            <p>Soluciones de infraestructura adaptadas a cada necesidad.</p>
+            <p>Soluciones de infraestructura adaptada a cada necesidad.</p>
         </div>
 
         <div class="game-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px;">
@@ -128,6 +129,31 @@
         </div>
     </section>
 
+    <!-- Ventana emergente del código promocional (MODAL) -->
+    <div id="promo-modal" class="promo-modal premium-modal">
+        <div class="promo-content">
+            <div class="promo-header">
+                <h3>¡Apertura de Xelcore!</h3>
+            </div>
+            <p>Prueba la potencia de nuestro primer nodo Ryzen con un <strong>20% de descuento</strong> abriendo un ticket.</p>
+            
+            <div class="promo-box ticket-style">
+                <span class="ticket-label">🎟️ CUPÓN:</span>
+                <span id="promo-code">XCOREFIRST</span>
+            </div>
+
+            <div class="promo-actions">
+                <button class="btn-copy full-width" onclick="copyPromoCode()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copiar Cupón
+                </button>
+            </div>
+            
+            <p id="copy-feedback" style="display:none;">¡Cupón copiado al portapapeles!</p>
+            <button class="close-btn" onclick="closePromoModal()">×</button>
+        </div>
+    </div>
+
     <!-- Footer Profesional -->
     <footer class="site-footer">
         <div class="container footer-content">
@@ -174,5 +200,33 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="particles-config.js"></script>
+    <script>
+        function copyPromoCode() {
+            const codeText = document.getElementById("promo-code").innerText;
+            const btnCopy = document.querySelector(".btn-copy");
+            const originalText = btnCopy.innerHTML;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const feedback = document.getElementById("copy-feedback");
+                feedback.style.display = "block";
+                btnCopy.innerHTML = '¡Copiado!';
+                setTimeout(() => {
+                    feedback.style.display = "none";
+                    btnCopy.innerHTML = originalText;
+                }, 3000);
+            });
+        }
+
+        function closePromoModal() {
+            document.getElementById("promo-modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("promo-modal");
+            if (event.target == modal) {
+                closePromoModal();
+            }
+        }
+    </script>
 </body>
 </html>

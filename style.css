@@ -732,3 +732,125 @@ body {
     font-weight: 400;
     color: var(--text-muted);
 }
+/* Estilos del Modal Promocional */
+.promo-modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 10, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.promo-content {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 200, 151, 0.3);
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 200, 151, 0.2);
+}
+
+.promo-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.promo-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.ticket-style {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(0, 200, 151, 0.4);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.ticket-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+#promo-code {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--popular-border);
+    letter-spacing: 1px;
+}
+
+.promo-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-copy {
+    background: var(--popular-border);
+    color: #05050a;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 200, 151, 0.3);
+}
+
+.btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 200, 151, 0.4);
+}
+
+.full-width {
+    width: 100%;
+}
+
+#copy-feedback {
+    color: var(--popular-border);
+    font-size: 0.85rem;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--text-main);
+}
