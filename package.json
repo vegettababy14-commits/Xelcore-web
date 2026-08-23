@@ -1,0 +1,14 @@
+{
+  "name": "xelcore-support",
+  "version": "1.0.0",
+  "description": "Sistema de soporte personalizado para Xelcore",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.0",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

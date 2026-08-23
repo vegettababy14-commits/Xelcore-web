@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte - Xelcore</title>
+    <!-- Socket.io cliente -->
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f1115;
+            background-image: radial-gradient(circle at 50% 30%, #1a221e 0%, #0f1115 70%);
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Widget flotante de Crisp style */
+        .xelcore-chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 380px;
+            height: 520px;
+            background: #161922;
+            border: 1px solid #2a322c;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        /* Cabecera del chat */
+        .chat-header {
+            background: #1c221e;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #2a322c;
+        }
+
+        .chat-header img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #a3e635;
+            margin-right: 10px;
+        }
+
+        .chat-header .title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .chat-header .subtitle {
+            font-size: 11px;
+            color: #a3e635;
+        }
+
+        /* Contenedor de mensajes */
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #12151c;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message.bot {
+            background: #1e2520;
+            color: #d1d5db;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border-left: 3px solid #a3e635;
+        }
+
+        .message.user {
+            background: #a3e635;
+            color: #0f1115;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+            font-weight: 500;
+        }
+
+        .message.staff {
+            background: #252b36;
+            color: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        /* Pie con barra de entrada */
+        .chat-input-area {
+            padding: 12px;
+            background: #1c221e;
+            border-top: 1px solid #2a322c;
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            background: #12151c;
+            border: 1px solid #2a322c;
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input-area input:focus {
+            border-color: #a3e635;
+        }
+
+        .chat-input-area button {
+            background: #a3e635;
+            color: #0f1115;
+            border: none;
+            border-radius: 8px;
+            padding: 0 16px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .chat-input-area button:hover {
+            background: #84cc16;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Widget de Chat Flotante -->
+    <div class="xelcore-chat-widget">
+        <div class="chat-header">
+            <!-- Usamos el logo circular o inicial de Xelcore -->
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2312151c'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='%23a3e635' font-family='sans-serif' font-weight='bold'>X</text></svg>" alt="Xelcore">
+            <div>
+                <div class="title">Soporte Xelcore</div>
+                <div class="subtitle">● En línea</div>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">¡Hola! Soy XelcoreBot. ¿En qué podemos ayudarte con tu servidor hoy?</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="messageInput" placeholder="Escribe tu duda..." autocomplete="off">
+            <button id="sendButton">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (!text) return;
+
+            appendMessage(text, 'user');
+            socket.emit('user_message', { message: text });
+            messageInput.value = '';
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Recibir respuesta del staff desde Discord (vía servidor)
+        socket.on('server_response', (data) => {
+            appendMessage(data.message, 'staff');
+        });
+    </script>
+</body>
+</html>
