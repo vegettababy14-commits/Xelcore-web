@@ -141,4 +141,4 @@ server.listen(PORT, () => {
 // Iniciar sesión en Discord
 discordClient.login(DISCORD_TOKEN);
 
-//prueba de subida a github y proxmox
+//prueba de subida a github y proxmo
