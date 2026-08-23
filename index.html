@@ -6,7 +6,7 @@
     <title>Xelcore | Servidores de Alto Rendimiento</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9eeab41f-43ad-49a4-bd5f-211ff18df482";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>   
+    <script src="/socket.io/socket.io.js"></script>  
 </head>
 <body>
 
@@ -153,6 +153,29 @@
         </div>
     </div>
 
+<!-- Botón Flotante para Abrir el Chat -->
+<button class="xelcore-chat-btn" id="chatToggleBtn" title="Abrir Soporte">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+</button>
+
+<!-- Ventana de Chat Flotante Soporte Xelcore -->
+<div class="xelcore-chat-widget" id="chatWidget">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <div class="title">Soporte Xelcore</div>
+            <div class="subtitle">● En línea</div>
+        </div>
+        <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">¡Hola! Soy XelcoreBot. ¿En qué podemos ayudarte con tu servidor hoy?</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="messageInput" placeholder="Escribe tu duda..." autocomplete="off">
+        <button id="sendButton">Enviar</button>
+    </div>
+</div>
+
     <!-- Footer Profesional -->
     <footer class="site-footer">
         <div class="container footer-content">
@@ -226,6 +249,77 @@
                 closePromoModal();
             }
         }
+
+// Control de apertura y cierre del widget de chat
+        const chatToggleBtn = document.getElementById('chatToggleBtn');
+        const chatWidget = document.getElementById('chatWidget');
+        const chatCloseBtn = document.getElementById('chatCloseBtn');
+
+        chatToggleBtn.addEventListener('click', () => {
+            chatWidget.classList.toggle('active');
+        });
+
+        chatCloseBtn.addEventListener('click', () => {
+            chatWidget.classList.remove('active');
+        });
+
+        function copyPromoCode() {
+            const codeText = document.getElementById("promo-code").innerText;
+            const btnCopy = document.querySelector(".btn-copy");
+            const originalText = btnCopy.innerHTML;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const feedback = document.getElementById("copy-feedback");
+                feedback.style.display = "block";
+                btnCopy.innerHTML = '¡Copiado!';
+                setTimeout(() => {
+                    feedback.style.display = "none";
+                    btnCopy.innerHTML = originalText;
+                }, 3000);
+            });
+        }
+
+        function closePromoModal() {
+            document.getElementById("promo-modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("promo-modal");
+            if (event.target == modal) {
+                closePromoModal();
+            }
+        }
+
+        // Lógica del Chat por WebSockets integrada con el bot
+        const socket = io();
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            socket.emit('user_message', { message: text });
+            messageInput.value = '';
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        socket.on('server_response', (data) => {
+            appendMessage(data.message, 'staff');
+        });
     </script>
 </body>
 </html>
