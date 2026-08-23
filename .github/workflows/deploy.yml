@@ -1,19 +1,25 @@
-name: Deploy Web to Server
+name: Deploy Xelcore to Production
+
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy a servidor LXC
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_IP }}
-          port: 2222
-          username: root
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/html
-            git pull origin master
+            cd /var/www/xelcore
+            git fetch origin master
+            git reset --hard origin/master
+            npm install
+            pm2 restart xelcore
