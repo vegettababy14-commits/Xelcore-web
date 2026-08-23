@@ -17,6 +17,7 @@ jobs:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
           script: |
             cd /var/www/xelcore
             git fetch origin master
