@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xelcore | Servidores VPS de Alto Rendimiento</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Luces de ambiente de fondo -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Barra de Navegación -->
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                <span class="nav-brand-text">Xelcore</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="games.html">Game Servers</a></li>
+                <li><a href="vps.html" class="active-link">VPS</a></li>
+                <li><a href="dedicados.html">Dedicados</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-lang-btn">🌐 ES</button>
+                <a href="https://panel.xelcore.es" class="nav-client-btn">
+                    <span>Área de Clientes</span>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabecera de la página VPS -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Servidores <span class="gradient-text">VPS NVMe</span></h1>
+            <p class="page-subtitle">Potencia escalable, recursos dedicados y almacenamiento ultrarrápido para tus proyectos y aplicaciones.</p>
+        </div>
+    </section>
+
+    <!-- PLANES PREDEFINIDOS DE VPS -->
+    <section class="games-catalog container" style="padding-top: 10px;">
+        <div class="game-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px;">
+            
+            <!-- VPS Start -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <h3>VPS Start</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>2 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>16 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>200 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.6rem;">15,99 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 10px;">Contratar VPS Start</a>
+                </div>
+            </div>
+
+            <!-- VPS Pro (Popular) -->
+            <div class="game-card" style="border-color: rgba(0, 200, 151, 0.4);">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <span class="game-tag">Más Popular</span>
+                    <h3>VPS Pro</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>4 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>24 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>300 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.6rem;">23,99 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-filled-popular" style="text-align: center; justify-content: center; padding: 10px;">Contratar VPS Pro</a>
+                </div>
+            </div>
+
+            <!-- VPS Elite -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <span class="game-tag secondary-tag">Alto Rendimiento</span>
+                    <h3>VPS Elite</h3>
+                </div>
+                <div class="game-card-body">
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>6 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>32 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>400 GB</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                    </ul>
+                    <div class="game-price-box">
+                        <span class="price-label">Precio</span>
+                        <span class="price-amount" style="font-size: 1.6rem;">32,99 € <small>/mes</small></span>
+                    </div>
+                    <a href="https://panel.xelcore.es" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 10px;">Contratar VPS Elite</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                    <span class="nav-brand-text">Xelcore</span>
+                </div>
+                <p class="footer-desc">
+                    Hosting de servidores de alto rendimiento, VPS y dedicados con la máxima estabilidad y protección Anti-DDoS.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="games.html">Game Servers</a></li>
+                    <li><a href="vps.html">VPS</a></li>
+                    <li><a href="dedicados.html">Dedicados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte & Comunidad</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/57yQ6dF8BR" target="_blank">Discord Oficial</a></li>
+                    <li><a href="https://panel.xelcore.es" target="_blank">Área de Clientes</a></li>
+                    <li><a href="#">Estado de los Sistemas</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Xelcore. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+</body>
+</html>

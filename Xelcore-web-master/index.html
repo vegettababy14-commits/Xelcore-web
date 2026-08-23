@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xelcore | Servidores de Alto Rendimiento</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>  
+</head>
+<body>
+
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+    <!-- Luces de ambiente de fondo -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Barra de Navegación -->
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                <span class="nav-brand-text">Xelcore</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="games.html">Game Servers</a></li>
+                <li><a href="vps.html">VPS</a></li>
+                <li><a href="dedicados.html">Dedicados</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-lang-btn">🌐 ES</button>
+                <a href="https://panel.xelcore.es" class="nav-client-btn">
+                    <span>Área de Clientes</span>
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero Principal -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span> Rendimiento Extremo NVMe
+            </div>
+            <h1 class="hero-title">
+                Hosting de Servidores <br>
+                <span class="gradient-text">Sin Límites</span>
+            </h1>
+            <p class="hero-subtitle">
+                Despliega servidores de juegos, VPS de alto rendimiento y servidores dedicados con la máxima estabilidad, protección Anti-DDoS avanzada y despliegue instantáneo.
+            </p>
+            <div class="hero-buttons">
+                <a href="games.html" class="btn-action btn-filled-popular">Ver Game Servers</a>
+                <a href="vps.html" class="btn-action btn-outline">Prueba el panel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características / Resumen de Servicios -->
+    <section class="games-catalog container" style="padding-top: 20px; padding-bottom: 60px;">
+        <div class="config-header" style="margin-bottom: 30px;">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones de infraestructura adaptada a cada necesidad.</p>
+        </div>
+
+        <div class="game-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px;">
+            
+            <!-- Game Servers Card -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <h3>Game Servers</h3>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-desc">Optimizado para Rust, Palworld y más. Elige planes cerrados o configúralos a tu medida.</p>
+                    <ul class="game-specs">
+                        <li><span>Rendimiento:</span> <strong>Ryzen 5</strong></li>
+                        <li><span>Protección:</span> <strong>Anti-DDoS</strong></li>
+                        <li><span>Despliegue:</span> <strong>Instantáneo</strong></li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="games.html" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 10px;">Ver Game Servers</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VPS Card -->
+            <div class="game-card" style="border-color: rgba(0, 200, 151, 0.4);">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <span class="game-tag">Más Popular</span>
+                    <h3>Servidores VPS</h3>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-desc">Potencia escalable y almacenamiento NVMe ultrarrápido para tus proyectos y aplicaciones.</p>
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>Hasta 6 vCores</strong></li>
+                        <li><span>RAM:</span> <strong>Hasta 32 GB</strong></li>
+                        <li><span>NVMe:</span> <strong>Hasta 400 GB</strong></li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="vps.html" class="btn-action btn-filled-popular" style="text-align: center; justify-content: center; padding: 10px;">Ver Planes VPS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dedicados Card -->
+            <div class="game-card">
+                <div class="game-card-banner" style="padding: 20px;">
+                    <span class="game-tag secondary-tag">Exclusivo</span>
+                    <h3>Servidores Dedicados</h3>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-desc">Hardware exclusivo sin compartir para entornos exigentes y virtualización avanzada.</p>
+                    <ul class="game-specs">
+                        <li><span>CPU:</span> <strong>Ryzen 5 3600</strong></li>
+                        <li><span>RAM:</span> <strong>64 GB DDR4</strong></li>
+                        <li><span>Red:</span> <strong>1 Gbps Simétrico</strong></li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="dedicados.html" class="btn-action btn-outline" style="text-align: center; justify-content: center; padding: 10px;">Ver Dedicados</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Ventana emergente del código promocional (MODAL) -->
+    <div id="promo-modal" class="promo-modal premium-modal">
+        <div class="promo-content">
+            <div class="promo-header">
+                <h3>¡Apertura de Xelcore!</h3>
+            </div>
+            <p>Prueba la potencia de nuestro primer nodo Ryzen con un <strong>20% de descuento</strong> abriendo un ticket.</p>
+            
+            <div class="promo-box ticket-style">
+                <span class="ticket-label">🎟️ CUPÓN:</span>
+                <span id="promo-code">XCOREFIRST</span>
+            </div>
+
+            <div class="promo-actions">
+                <button class="btn-copy full-width" onclick="copyPromoCode()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copiar Cupón
+                </button>
+            </div>
+            
+            <p id="copy-feedback" style="display:none;">¡Cupón copiado al portapapeles!</p>
+            <button class="close-btn" onclick="closePromoModal()">×</button>
+        </div>
+    </div>
+
+<!-- Botón Flotante para Abrir el Chat -->
+<button class="xelcore-chat-btn" id="chatToggleBtn" title="Abrir Soporte">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+</button>
+
+<!-- Ventana de Chat Flotante Soporte Xelcore -->
+<div class="xelcore-chat-widget" id="chatWidget">
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <div class="title">Soporte Xelcore</div>
+            <div class="subtitle">● En línea</div>
+        </div>
+        <button class="chat-close-btn" id="chatCloseBtn">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">¡Hola! Soy XelcoreBot. ¿En qué podemos ayudarte con tu servidor hoy?</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="messageInput" placeholder="Escribe tu duda..." autocomplete="off">
+        <button id="sendButton">Enviar</button>
+    </div>
+</div>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Xelcore Logo" class="nav-logo-icon">
+                    <span class="nav-brand-text">Xelcore</span>
+                </div>
+                <p class="footer-desc">
+                    Hosting de servidores de alto rendimiento, VPS y dedicados con la máxima estabilidad y protección Anti-DDoS.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="games.html">Game Servers</a></li>
+                    <li><a href="vps.html">VPS</a></li>
+                    <li><a href="dedicados.html">Dedicados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte & Comunidad</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/57yQ6dF8BR" target="_blank">Discord Oficial</a></li>
+                    <li><a href="https://panel.xelcore.es" target="_blank">Área de Clientes</a></li>
+                    <li><a href="#">Estado de los Sistemas</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Xelcore. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+    <script>
+        function copyPromoCode() {
+            const codeText = document.getElementById("promo-code").innerText;
+            const btnCopy = document.querySelector(".btn-copy");
+            const originalText = btnCopy.innerHTML;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const feedback = document.getElementById("copy-feedback");
+                feedback.style.display = "block";
+                btnCopy.innerHTML = '¡Copiado!';
+                setTimeout(() => {
+                    feedback.style.display = "none";
+                    btnCopy.innerHTML = originalText;
+                }, 3000);
+            });
+        }
+
+        function closePromoModal() {
+            document.getElementById("promo-modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("promo-modal");
+            if (event.target == modal) {
+                closePromoModal();
+            }
+        }
+
+// Control de apertura y cierre del widget de chat
+        const chatToggleBtn = document.getElementById('chatToggleBtn');
+        const chatWidget = document.getElementById('chatWidget');
+        const chatCloseBtn = document.getElementById('chatCloseBtn');
+
+        chatToggleBtn.addEventListener('click', () => {
+            chatWidget.classList.toggle('active');
+        });
+
+        chatCloseBtn.addEventListener('click', () => {
+            chatWidget.classList.remove('active');
+        });
+
+        function copyPromoCode() {
+            const codeText = document.getElementById("promo-code").innerText;
+            const btnCopy = document.querySelector(".btn-copy");
+            const originalText = btnCopy.innerHTML;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                const feedback = document.getElementById("copy-feedback");
+                feedback.style.display = "block";
+                btnCopy.innerHTML = '¡Copiado!';
+                setTimeout(() => {
+                    feedback.style.display = "none";
+                    btnCopy.innerHTML = originalText;
+                }, 3000);
+            });
+        }
+
+        function closePromoModal() {
+            document.getElementById("promo-modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("promo-modal");
+            if (event.target == modal) {
+                closePromoModal();
+            }
+        }
+
+        // Lógica del Chat por WebSockets integrada con el bot
+        const socket = io();
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (!text) return;
+            appendMessage(text, 'user');
+            socket.emit('user_message', { message: text });
+            messageInput.value = '';
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        socket.on('server_response', (data) => {
+            appendMessage(data.message, 'staff');
+        });
+    </script>
+</body>
+</html>
