@@ -854,3 +854,166 @@ body {
 .close-btn:hover {
     color: var(--text-main);
 }
+
+/* =========================================
+   WIDGET DE SOPORTE XELCORE (FLOTANTE)
+========================================= */
+/* Botón flotante para abrir el chat */
+.xelcore-chat-btn {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    background: #a3e635;
+    color: #0f1115;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(163, 230, 53, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.xelcore-chat-btn:hover {
+    transform: scale(1.08);
+    background: #84cc16;
+}
+
+/* Contenedor principal del chat (inicialmente oculto) */
+.xelcore-chat-widget {
+    position: fixed;
+    bottom: 100px;
+    left: 25px;
+    width: 380px;
+    height: 520px;
+    background: #161922;
+    border: 1px solid #2a322c;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+}
+
+.xelcore-chat-widget.active {
+    display: flex; /* Se muestra al activar */
+}
+
+.chat-header {
+    background: #1c221e;
+    padding: 15px;
+    border-bottom: 1px solid #2a322c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header-info .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.chat-header-info .subtitle {
+    font-size: 11px;
+    color: #a3e635;
+}
+
+.chat-close-btn {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-close-btn:hover {
+    color: #fff;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #12151c;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    background: #1e2520;
+    color: #d1d5db;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    border-left: 3px solid #a3e635;
+}
+
+.message.user {
+    background: #a3e635;
+    color: #0f1115;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    font-weight: 500;
+}
+
+.message.staff {
+    background: #252b36;
+    color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    border-left: 3px solid #3b82f6;
+}
+
+.chat-input-area {
+    padding: 12px;
+    background: #1c221e;
+    border-top: 1px solid #2a322c;
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    background: #12151c;
+    border: 1px solid #2a322c;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #fff;
+    font-size: 13px;
+    outline: none;
+}
+
+.chat-input-area input:focus {
+    border-color: #a3e635;
+}
+
+.chat-input-area button {
+    background: #a3e635;
+    color: #0f1115;
+    border: none;
+    border-radius: 8px;
+    padding: 0 16px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.chat-input-area button:hover {
+    background: #84cc16;
+}
